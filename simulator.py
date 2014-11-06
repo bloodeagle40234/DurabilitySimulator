@@ -153,6 +153,10 @@ if __name__ == '__main__':
     mttdl_rs = matrix * state_matrix
     mttdl = mttdl_rs / rs_num
     durability = 1 - (1 / mttdl.getA1()[0])
+    try:
+        nines = int(math.log(1 - durability, 0.1))
+    except ValueError:
+        nines = 'Over flow (more than 15)'
 
     if vorbose:
         print 'mttdl_rs: \n', mttdl_rs
@@ -160,5 +164,5 @@ if __name__ == '__main__':
     print 'Storage Efficiency (NOTE: no replica -> 1.0): %s' % \
         (float(data_num + parity_num) / float(data_num))
     print 'Swift Durability : %s' % durability
-    print '# of Nines (LOG): %s' % int(math.log(1 - durability, 0.1))
+    print '# of Nines (LOG): %s' % nines
     print '################################################'
