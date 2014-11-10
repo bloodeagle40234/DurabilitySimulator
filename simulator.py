@@ -116,8 +116,8 @@ if __name__ == '__main__':
         '-p', '--parition_num', dest='part_power', default=18,
         type=int, help='# of partition power. Default is 18.')
     parser.add_option(
-        '-u', '--afr', dest='afr', default=8.3/10**7, type=float,
-        help='Disk AFR from catalog (or actual) spec')
+        '-u', '--afr', dest='afr', default=8.3/10**6, type=float,
+        help='Disk AFR from catalog (or actual) spec (per hour)')
     # TODO: add repair rate calculation description with network design
     parser.add_option(
         '-v', '--repair-rate', dest='repair_rate', default=1.66,
